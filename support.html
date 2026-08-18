@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aesthiq Support</title>
+  <meta name="description" content="Help and contact information for the Aesthiq photo editing app.">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #555f6a;
+      --rule: #e2e5e9;
+      --link: #1f5bd0;
+      --sunk: #f5f7f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 44em;
+      padding: 2em 1em 4em;
+      -webkit-text-size-adjust: 100%;
+    }
+    h1 { font-size: 1.9em; line-height: 1.15; margin: 0 0 .2em; letter-spacing: -.02em; }
+    h2 {
+      font-size: 1.15em;
+      margin: 2.2em 0 .6em;
+      padding-bottom: .35em;
+      border-bottom: 1px solid var(--rule);
+      letter-spacing: -.01em;
+    }
+    h3 { font-size: 1em; margin: 1.5em 0 .3em; }
+    p, ul, ol { margin: 0 0 1em; }
+    ul, ol { padding-left: 1.4em; }
+    li { margin-bottom: .35em; }
+    a { color: var(--link); }
+    .lede { color: var(--muted); font-size: 1.05em; margin-bottom: 1.5em; }
+    .contact {
+      background: var(--sunk);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.1em 1.2em;
+      margin: 0 0 1.5em;
+    }
+    .contact p { margin: 0 0 .4em; }
+    .contact p:last-child { margin: 0; }
+    .contact .email { font-size: 1.15em; font-weight: 600; }
+    .muted { color: var(--muted); font-size: .92em; }
+    footer {
+      margin-top: 3em;
+      padding-top: 1.2em;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: .9em;
+    }
+    footer a { margin-right: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>Aesthiq Support</h1>
+  <p class="lede">Help with subscriptions, edits, and your data. If you can't find an answer here, email us — we read everything.</p>
+
+  <div class="contact">
+    <p class="email"><a href="mailto:dinethchandimal@gmail.com">dinethchandimal@gmail.com</a></p>
+    <p class="muted">We aim to reply within 2 business days. Telling us your device model and iOS version helps us help you faster.</p>
+  </div>
+
+  <h2>Subscriptions and billing</h2>
+
+  <h3>How do I cancel my subscription?</h3>
+  <p>Subscriptions are managed by Apple, not by us, so cancelling happens in your device settings:</p>
+  <ol>
+    <li>Open the <strong>Settings</strong> app</li>
+    <li>Tap your name at the top</li>
+    <li>Tap <strong>Subscriptions</strong></li>
+    <li>Select <strong>Aesthiq</strong>, then <strong>Cancel Subscription</strong></li>
+  </ol>
+  <p>Cancel at least 24 hours before your renewal date, or that period will still be charged. After cancelling you keep access until the end of the period you've already paid for.</p>
+
+  <h3>How do I cancel during the free trial?</h3>
+  <p>The same steps apply. Cancel at least 24 hours before the trial ends and you won't be charged. If you cancel during the trial you keep access until the trial period finishes.</p>
+
+  <h3>I already paid but the app says I'm not subscribed</h3>
+  <p>Open the paywall in the app and tap <strong>Restore Purchases</strong>. This re-checks your Apple ID for an active subscription. Make sure you're signed in to the same Apple ID you purchased with. If it still doesn't restore, email us and include the Apple ID email used for the purchase.</p>
+
+  <h3>How do I get a refund?</h3>
+  <p>All purchases go through Apple, so refunds are handled by Apple rather than by us. Request one at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a> using the Apple ID that made the purchase. If Apple declines and you believe there's been a genuine error, get in touch and we'll help where we can.</p>
+
+  <h2>Edits and credits</h2>
+
+  <h3>How does the free tier work?</h3>
+  <p>New installs come with 5 starter edits. Once those are used, you get <strong>one free edit per day</strong>, which resets at midnight UTC. Subscribing removes the daily limit.</p>
+
+  <h3>Why does my saved photo have a watermark?</h3>
+  <p>Edits saved on the free tier carry a small Aesthiq watermark. Subscribing removes it from all future saves. It isn't applied retroactively, so re-run an edit after subscribing to get a clean version.</p>
+
+  <h3>My edit failed or timed out</h3>
+  <p>Image generation runs on external AI infrastructure that occasionally gets busy. If an edit fails:</p>
+  <ul>
+    <li>Wait a moment and try again — most failures are temporary load, not a problem with your photo</li>
+    <li>Check your internet connection; edits need a stable connection for as long as the generation runs</li>
+    <li>If a free edit or credit was consumed by a failed generation, it's refunded automatically. If your balance still looks wrong, email us</li>
+  </ul>
+
+  <h3>The result doesn't look how I expected</h3>
+  <p>Results vary with lighting, resolution, and how much of the frame the subject fills. Photos that are well lit and reasonably sharp give the most consistent results. Try a different style variation, or adjust the style strength on the result screen.</p>
+
+  <h2>Your photos and data</h2>
+
+  <h3>Are my photos stored on your servers?</h3>
+  <p>No. To create an edit, your photo is sent to Google's Gemini API, which generates the edited image and returns it. We don't retain your original photographs on our servers beyond what's needed to process that request, and we don't use your photos to train models. Your edits are stored locally on your device, and deleting the app removes them.</p>
+
+  <h3>Do I need an account?</h3>
+  <p>No. Aesthiq uses anonymous authentication — there's no sign-up, and we never ask for your name or email address to use the app.</p>
+
+  <h3>How do I delete my data?</h3>
+  <p>Uninstalling the app removes everything stored on your device and stops any further collection. To request deletion of data already held on our side, email <a href="mailto:dinethchandimal@gmail.com">dinethchandimal@gmail.com</a> and we'll take care of it.</p>
+
+  <h2>Device requirements</h2>
+  <p>Aesthiq requires <strong>iPhone running iOS 18.0 or later</strong>. It isn't currently available for iPad or Mac.</p>
+
+  <h2>Still stuck?</h2>
+  <p>Email <a href="mailto:dinethchandimal@gmail.com">dinethchandimal@gmail.com</a> with a description of what happened and what you expected instead. Screenshots and your device model and iOS version make a real difference to how quickly we can sort it out.</p>
+
+  <footer>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Use</a>
+    <p style="margin-top:.8em">Aesthiq is operated by Dineth Panagoda.</p>
+  </footer>
+
+</body>
+</html>
