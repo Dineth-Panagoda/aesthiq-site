@@ -1,8 +1,460 @@
-  <!DOCTYPE html>                                                                                                                                                                      
-  <html>                                                                                                                                                                               
-  <head><meta charset="UTF-8"><title>Aesthiq</title></head>                                                                                                                            
-  <body>                                                                                                                                                                               
-  <h1>Aesthiq</h1>                                                                                                                                                                     
-  <p>AI-powered color grading for iOS.</p>                                                                                                                                             
-  </body>                                     
-  </html>                                                                                                                                                                              
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aesthiq — Aesthetic intelligence for every photo you capture</title>
+<meta name="description" content="Aesthiq is an AI photo editor for iOS that regrades your photos like a colorist would. Pick a curated look or match any reference photo, then fine-tune with sliders, frames, and film effects.">
+<link rel="canonical" href="https://aesthiq.app/">
+<link rel="icon" href="img/icon-180.png">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aesthiq.app/">
+<meta property="og:title" content="Aesthiq — Aesthetic intelligence for every photo you capture">
+<meta property="og:description" content="An AI photo editor for iOS that regrades your photos like a colorist would. Curated looks, reference-photo matching, and manual control.">
+<meta property="og:image" content="https://aesthiq.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Aesthiq",
+  "applicationCategory": "PhotoApplication",
+  "operatingSystem": "iOS 17.0 or later",
+  "url": "https://aesthiq.app/",
+  "description": "An AI photo editor for iOS that regrades your photos like a colorist would. Curated looks, reference-photo matching, manual sliders, frames and film effects.",
+  "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free" },
+    { "@type": "Offer", "price": "2.99", "priceCurrency": "USD", "name": "Aesthiq Pro — Weekly" },
+    { "@type": "Offer", "price": "29.99", "priceCurrency": "USD", "name": "Aesthiq Pro — Annual" }
+  ],
+  "author": { "@type": "Person", "name": "Dineth Panagoda" },
+  "publisher": { "@type": "Organization", "name": "Aesthiq", "url": "https://aesthiq.app/" }
+}
+</script>
+
+<style>
+:root{
+  --ink:#0E0D0B; --ink-lift:#17130F; --paper:#F5F2EC; --cream:#ECE7DC;
+  --coral:#FF7A4A; --muted:rgba(245,242,236,.55); --faint:rgba(245,242,236,.34);
+  --line:rgba(245,242,236,.12); --card:rgba(245,242,236,.05);
+  --serif:"Instrument Serif",Georgia,serif;
+  --head:"Manrope",system-ui,sans-serif;
+  --body:"Plus Jakarta Sans",system-ui,sans-serif;
+  --wrap:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:var(--body);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--coral);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:96px 0;border-top:1px solid var(--line)}
+h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0}
+h2{font-size:clamp(28px,4.4vw,42px)}
+h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.eyebrow{
+  font-family:var(--head);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--coral);margin:0 0 14px
+}
+.lede{color:var(--muted);font-size:18px;max-width:60ch;margin:16px 0 0}
+
+/* ---------- nav ---------- */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(14,13,11,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)
+}
+.nav{display:flex;align-items:center;gap:14px;height:66px}
+.brand{display:flex;align-items:center}
+.brand:hover{text-decoration:none}
+.brand img{height:26px;width:auto}
+.nav-links{margin-left:auto;display:flex;gap:28px;font-size:15px;color:var(--muted)}
+.nav-links a{color:inherit}
+.nav-links a:hover{color:var(--paper);text-decoration:none}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  padding:104px 0 92px;border-top:none;
+  background:radial-gradient(1100px 520px at 50% -12%,rgba(255,122,74,.14),transparent 70%)
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(40px,6.4vw,68px)}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--coral)}
+.hero .lede{font-size:20px}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 15px;margin-bottom:26px;
+  border:1px solid var(--line);border-radius:100px;background:var(--card);
+  font-size:13px;font-weight:500;color:var(--cream)
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--coral);flex:none}
+.cta-row{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 27px;border-radius:13px;font-family:var(--head);
+  font-size:15px;font-weight:700;letter-spacing:-.01em;transition:transform .15s,opacity .15s
+}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--coral);color:#1a0d06}
+.btn-ghost{border:1px solid var(--line);color:var(--paper);background:var(--card)}
+.hero-shot{position:relative;justify-self:center;max-width:352px}
+.hero-shot img{filter:drop-shadow(0 30px 60px rgba(0,0,0,.7))}
+@media(max-width:900px){
+  .hero{padding:64px 0 72px}
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero-shot{max-width:290px}
+}
+
+/* ---------- features ---------- */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:104px}
+.feature:last-child{margin-bottom:0}
+.feature:nth-child(even) .feature-shot{order:-1}
+.feature-shot{justify-self:center;max-width:314px}
+.feature-shot img{filter:drop-shadow(0 22px 46px rgba(0,0,0,.58))}
+.feature h3{font-size:clamp(24px,3.2vw,31px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.feature p{color:var(--muted);margin:15px 0 0}
+@media(max-width:860px){
+  .feature{grid-template-columns:1fr;gap:34px;margin-bottom:74px}
+  .feature:nth-child(even) .feature-shot{order:0}
+  .feature-shot{max-width:262px}
+}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px}
+.step{padding:30px;border:1px solid var(--line);border-radius:17px;background:var(--card)}
+.step-n{
+  font-family:var(--head);font-size:12px;font-weight:800;letter-spacing:.12em;
+  color:var(--coral);margin-bottom:15px
+}
+.step p{color:var(--muted);font-size:15.5px;margin:9px 0 0}
+.note{
+  display:flex;gap:13px;margin-top:26px;padding:19px 22px;
+  border:1px solid rgba(255,122,74,.24);border-radius:15px;background:rgba(255,122,74,.06);
+  color:var(--cream);font-size:15.5px
+}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+/* ---------- pricing ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px;align-items:start}
+.tier{padding:32px;border:1px solid var(--line);border-radius:19px;background:var(--card)}
+.tier.hi{border-color:rgba(255,122,74,.42);background:rgba(255,122,74,.07);position:relative}
+.tier-tag{
+  position:absolute;top:-11px;left:32px;padding:4px 12px;border-radius:100px;
+  background:var(--coral);color:#1a0d06;font-family:var(--head);
+  font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase
+}
+.tier h3{font-size:15px;font-weight:700;color:var(--cream);letter-spacing:.01em}
+.price{font-family:var(--head);font-size:39px;font-weight:800;letter-spacing:-.03em;margin:13px 0 4px}
+.price span{font-size:15px;font-weight:600;color:var(--faint);letter-spacing:0}
+.tier ul{list-style:none;padding:0;margin:21px 0 0;font-size:15.5px;color:var(--muted)}
+.tier li{padding-left:23px;position:relative;margin-bottom:11px}
+.tier li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--coral);opacity:.85}
+.fineprint{color:var(--faint);font-size:13.5px;margin-top:30px;max-width:74ch}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+
+/* ---------- founder ---------- */
+.founder{display:grid;grid-template-columns:168px 1fr;gap:38px;align-items:start;margin-top:40px}
+.avatar{
+  width:168px;height:168px;border-radius:19px;object-fit:cover;
+  border:1px solid var(--line);background:var(--card)
+}
+.founder p{color:var(--muted);margin:0 0 15px}
+.founder .name{font-family:var(--head);font-size:21px;font-weight:800;color:var(--paper);margin:0 0 3px;letter-spacing:-.01em}
+.founder .role{font-size:14px;color:var(--coral);margin:0 0 19px;letter-spacing:.02em}
+@media(max-width:700px){
+  .founder{grid-template-columns:1fr;gap:26px}
+  .avatar{width:124px;height:124px}
+}
+
+/* ---------- contact / footer ---------- */
+.contact-card{
+  margin-top:38px;padding:38px;border:1px solid var(--line);
+  border-radius:19px;background:var(--card);max-width:560px
+}
+.contact-card .label{font-size:13px;color:var(--faint);letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px}
+.contact-card .val{font-family:var(--head);font-size:21px;font-weight:700}
+footer{border-top:1px solid var(--line);padding:44px 0;color:var(--faint);font-size:14.5px}
+.foot{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center}
+.foot .sep{margin-left:auto}
+.foot a{color:var(--muted)}
+.foot a:hover{color:var(--paper);text-decoration:none}
+@media(max-width:640px){.foot .sep{margin-left:0;width:100%}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><img src="img/wordmark.png" width="560" height="215" alt="Aesthiq"></a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge"><span class="dot"></span> Coming soon to the App Store</div>
+      <h1>Aesthetic intelligence for every moment you <em>capture</em>.</h1>
+      <p class="lede">
+        Aesthiq is an AI photo editor for iPhone that regrades your photos the way a
+        colorist would. Pick a curated look, or hand it any reference photo and it
+        matches the grade — then fine-tune every detail yourself.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://testflight.apple.com/join/tuB4bn4r">Join the TestFlight beta</a>
+        <a class="btn btn-ghost" href="#features">See what it does</a>
+      </div>
+    </div>
+    <div class="hero-shot">
+      <img src="img/01-find-your-aesthetic.webp" width="640" height="1319"
+           alt="Aesthiq on iPhone showing a curated style applied to a sunset beach portrait, with variation thumbnails below">
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">What it does</p>
+    <h2>Built for people whose feed has&nbsp;a look.</h2>
+    <p class="lede">
+      Aesthiq is made for content creators and photographers who want every post to
+      belong to the same visual world — not a folder of one-off filters.
+    </p>
+
+    <div style="margin-top:76px">
+
+      <div class="feature">
+        <div>
+          <h3>Find your aesthetic</h3>
+          <p>
+            Browse a curated catalog of looks — Y2K digicam flash, disposable camera,
+            warm studio portrait, and more. Each one is a full grade built to hold up
+            across a whole set of photos, not a single-tap filter that falls apart on
+            the next shot. New looks land every week.
+          </p>
+        </div>
+        <div class="feature-shot">
+          <img loading="lazy" decoding="async" src="img/01-find-your-aesthetic.webp" width="640" height="1319"
+               alt="Style carousel in Aesthiq with curated looks and three variation thumbnails">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Match any aesthetic</h3>
+          <p>
+            Got a mood no preset covers? Drop in a reference photo and Aesthiq reads its
+            colour, contrast and light, then applies that same treatment to your own
+            shot. Any image you've saved becomes a look you can reuse.
+          </p>
+        </div>
+        <div class="feature-shot">
+          <img loading="lazy" decoding="async" src="img/02-match-any-aesthetic.webp" width="640" height="1319"
+               alt="Custom Aesthetic feature in Aesthiq matching a reference photo's grade">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Keep your feed consistent</h3>
+          <p>
+            Every edit is saved to your library with a before-and-after view, so you can
+            see the through-line across a set at a glance and reapply the same look to
+            the next photo in seconds.
+          </p>
+        </div>
+        <div class="feature-shot">
+          <img loading="lazy" decoding="async" src="img/03-keep-your-feed-consistent.webp" width="640" height="1319"
+               alt="Aesthiq home grid showing recent edits, each tile split before and after">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Tune every detail yourself</h3>
+          <p>
+            The AI grade is a starting point, not a verdict. Dial the style amount up or
+            down, then reach for a full set of manual sliders — exposure, contrast,
+            temperature, grain and more — until it's exactly yours.
+          </p>
+        </div>
+        <div class="feature-shot">
+          <img loading="lazy" decoding="async" src="img/04-tune-every-detail.webp" width="640" height="1319"
+               alt="Aesthiq adjust panel with the style amount dial and manual sliders">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Stack frames &amp; film effects</h3>
+          <p>
+            Finish with instant-camera frames, date stamps, film grain and light leaks.
+            Layer them over any grade to land the exact era you're going for.
+          </p>
+        </div>
+        <div class="feature-shot">
+          <img loading="lazy" decoding="async" src="img/05-stack-frames-film-effects.webp" width="640" height="1319"
+               alt="Aesthiq overlay carousel with an instant frame and date stamp applied">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Three steps. That's the whole app.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">STEP 01</div>
+        <h3>Choose your photo</h3>
+        <p>Select any photo from your camera roll.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">STEP 02</div>
+        <h3>Pick a look</h3>
+        <p>Dozens of curated looks — from Y2K digicam flash to studio portraits.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">STEP 03</div>
+        <h3>Get the look</h3>
+        <p>Aesthiq regrades your photo like a colorist would. Fine-tune with sliders and overlays.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <span>✦</span>
+      <span>Under the hood, Aesthiq runs on Google's Gemini models for image understanding
+      and grading, with on-device rendering for the manual adjustments so edits stay instant.</span>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <p class="eyebrow">Pricing</p>
+    <h2>Free to start. Pro when you're shooting a lot.</h2>
+    <p class="lede">
+      Aesthiq is free to download. Every account gets starter edits plus a free edit each
+      day — Aesthiq Pro removes the limit.
+    </p>
+
+    <div class="tiers">
+      <div class="tier">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <ul>
+          <li>5 starter edits</li>
+          <li>1 free edit every day after that</li>
+          <li>Full curated style catalog</li>
+          <li>Manual sliders and overlays</li>
+        </ul>
+      </div>
+      <div class="tier hi">
+        <span class="tier-tag">Best value</span>
+        <h3>Aesthiq Pro — Annual</h3>
+        <div class="price">$29.99 <span>/ year</span></div>
+        <ul>
+          <li>3-day free trial</li>
+          <li>Unlimited edits</li>
+          <li>Custom Aesthetic reference matching</li>
+          <li>New looks every week</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h3>Aesthiq Pro — Weekly</h3>
+        <div class="price">$2.99 <span>/ week</span></div>
+        <ul>
+          <li>Unlimited edits</li>
+          <li>Custom Aesthetic reference matching</li>
+          <li>New looks every week</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fineprint">
+      Prices shown in USD and may vary by region. Subscriptions renew automatically until
+      cancelled, and can be managed or cancelled any time in your Apple ID settings. See the
+      <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a> for full details.
+    </p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h2>Who's building this.</h2>
+
+    <div class="founder">
+      <img class="avatar" src="img/founder.jpg" width="400" height="400" alt="Dineth Panagoda, founder of Aesthiq">
+      <div>
+        <p class="name">Dineth Panagoda</p>
+        <p class="role">Founder &amp; Engineer</p>
+        <p>
+          Aesthiq is an independent, self-funded iOS studio. I design, build and ship the
+          app end to end — the SwiftUI client, the grading pipeline, and the backend that
+          serves the style catalog.
+        </p>
+        <p>
+          It started from a simple frustration: filter apps make one photo look good, but
+          they can't hold a consistent look across everything you post. Aesthiq is the
+          attempt to fix that.
+        </p>
+        <p style="margin:0"><a href="https://www.linkedin.com/in/dineth-panagoda-927667223/">LinkedIn</a> · <a href="mailto:dineth@aesthiq.app">dineth@aesthiq.app</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Get in touch.</h2>
+    <p class="lede">Support, press, or partnership — email reaches me directly.</p>
+
+    <div class="contact-card">
+      <div class="label">Email</div>
+      <div class="val"><a href="mailto:dineth@aesthiq.app">dineth@aesthiq.app</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Aesthiq</span>
+    <span class="sep"></span>
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Use</a>
+    <a href="mailto:dineth@aesthiq.app">dineth@aesthiq.app</a>
+  </div>
+</footer>
+
+</body>
+</html>
