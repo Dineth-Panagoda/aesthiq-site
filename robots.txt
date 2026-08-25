@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aesthiq.app/sitemap.xml
