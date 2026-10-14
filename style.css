@@ -5,7 +5,7 @@
   --serif:"Instrument Serif",Georgia,serif;
   --head:"Manrope",system-ui,sans-serif;
   --body:"Plus Jakarta Sans",system-ui,sans-serif;
-  --wrap:1120px;
+  --wrap:1440px;
   --ease:cubic-bezier(.22,1,.36,1);
   --z-grain:1; --z-header:50; --z-skip:60;
 }
