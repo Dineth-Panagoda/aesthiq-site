@@ -114,6 +114,21 @@ header{
   .cta-row .btn{flex:1 1 100%}
 }
 
+/* ---------- QR for desktop visitors ----------
+   An iPhone app can't be installed from a computer, and most launch-day traffic
+   arrives on one. Shown only where there's a mouse and room for it. */
+.qr{display:none;align-items:center;gap:16px;margin-top:26px;padding:12px 18px 12px 12px;width:max-content;max-width:100%;
+  border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.qr img{width:96px;height:96px;border-radius:10px;flex:none}
+.qr p{margin:0}
+.qr-title{font-family:var(--head);font-weight:700;font-size:15px;color:var(--paper)}
+.qr-sub{font-size:13.5px;color:var(--faint);margin-top:3px!important}
+@media (hover:hover) and (pointer:fine) and (min-width:901px){
+  .qr{display:flex}
+  .hero-meta{display:none}
+}
+.final-inner .qr{margin-top:32px;text-align:left}
+
 /* ---------- before / after compare ---------- */
 .compare{margin:0;justify-self:center;width:100%;max-width:440px;--d:.2s}
 .compare-frame{
