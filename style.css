@@ -212,7 +212,7 @@ header{
 @media(max-width:720px){.style-row{grid-auto-columns:68vw}}
 
 /* ---------- features (sticky phone) ---------- */
-.feat-grid{display:grid;grid-template-columns:1fr minmax(260px,330px);gap:80px;margin-top:24px}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:24px}
 .feat{min-height:72vh;display:flex;flex-direction:column;justify-content:center;max-width:470px;opacity:.32;transition:opacity .5s var(--ease)}
 .feat.is-active{opacity:1}
 .feat-n{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--coral);line-height:1;margin-bottom:12px}
@@ -221,7 +221,7 @@ header{
 .feat-inline{display:none}
 .feat-stage{position:sticky;top:max(84px,calc(50vh - 46vh + 40px));height:max-content;align-self:start;display:flex;flex-direction:column;align-items:center}
 /* Sized by viewport height so the whole phone fits on a short laptop screen. */
-.phone{position:relative;aspect-ratio:640/1319;width:min(100%,calc((100vh - 190px) * 640 / 1319))}
+.phone{position:relative;aspect-ratio:640/1319;width:min(340px,calc((100vh - 190px) * 640 / 1319))}
 .phone img{position:absolute;inset:0;width:100%;height:100%;opacity:0;transform:translateY(14px) scale(.985);
   transition:opacity .6s var(--ease),transform .6s var(--ease);filter:drop-shadow(0 30px 60px rgba(0,0,0,.7))}
 .phone img.is-active{opacity:1;transform:none}
