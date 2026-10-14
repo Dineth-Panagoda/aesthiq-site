@@ -182,6 +182,20 @@ header{
 .style-info p{margin:6px 0 0;font-size:12.5px;color:rgba(245,242,236,.72)}
 .style-row .style-card:nth-child(2){--d:.06s}.style-row .style-card:nth-child(3){--d:.12s}
 .style-row .style-card:nth-child(4){--d:.18s}.style-row .style-card:nth-child(5){--d:.24s}
+/* Last card in the row: the looks not shown, blurred, leading to the App Store. */
+.style-more{display:block;color:var(--paper);box-shadow:0 0 0 1px rgba(255,122,74,.35)}
+.style-more:hover{text-decoration:none;box-shadow:0 0 0 1px rgba(255,122,74,.7)}
+.style-more::after{height:100%;background:linear-gradient(180deg,rgba(9,8,7,.05) 0%,rgba(9,8,7,.25) 40%,rgba(9,8,7,.9) 100%)}
+.more-grid{position:absolute;inset:-12px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;filter:blur(7px) saturate(1.2) brightness(1.1);transform:scale(1.06);transition:filter .6s var(--ease),transform .9s var(--ease)}
+.more-grid img{width:100%;height:100%;object-fit:cover}
+.style-more:hover .more-grid{filter:blur(6px) saturate(1.2);transform:scale(1.1)}
+.style-more:hover img{transform:none}
+.more-info{position:absolute;inset:auto 18px 18px;z-index:1;display:flex;flex-direction:column;align-items:flex-start}
+.more-count{font-family:var(--serif);font-style:italic;font-size:34px;line-height:1}
+.more-info p{margin:8px 0 16px;font-size:13px;color:rgba(245,242,236,.75);line-height:1.5}
+.more-btn{display:inline-flex;gap:8px;align-items:center;padding:10px 15px;border-radius:12px;background:var(--coral);color:var(--coral-ink);font:700 13.5px var(--head);transition:transform .25s var(--ease)}
+.style-more:hover .more-btn{transform:translateX(3px)}
+.style-row .style-card:nth-child(6){--d:.3s}
 @media(max-width:720px){.row-arrows{display:none}.style-row{grid-auto-columns:68vw}}
 
 /* ---------- features (sticky phone) ---------- */
