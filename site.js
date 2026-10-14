@@ -137,16 +137,9 @@
     }
   }
 
-  // ---------- styles row arrows ----------
+  // ---------- styles row (swipeable on phones) ----------
   var row = document.querySelector("[data-style-row]");
   if (row) {
-    document.querySelectorAll("[data-scroll]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var card = row.querySelector(".style-card");
-        var stepPx = card ? card.getBoundingClientRect().width + 16 : 300;
-        row.scrollBy({ left: Number(btn.getAttribute("data-scroll")) * stepPx * 2, behavior: reduceMotion ? "auto" : "smooth" });
-      });
-    });
     var rowSeen = false;
     row.addEventListener("scroll", function () {
       if (rowSeen) return;
