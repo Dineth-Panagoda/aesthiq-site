@@ -73,15 +73,12 @@
       if (tab.classList.contains("is-active")) return;
       tabs.forEach(function (t) { t.classList.toggle("is-active", t === tab); t.setAttribute("aria-pressed", t === tab); });
       var name = tab.getAttribute("data-pair");
-      var h = tab.getAttribute("data-h");
       var nextBefore = new Image(), nextAfter = new Image(), loaded = 0;
       var swap = function () {
         if (++loaded < 2) return;
         frame.classList.add("is-swapping");
         setTimeout(function () {
           before.src = nextBefore.src; after.src = nextAfter.src;
-          before.height = after.height = h;
-          frame.style.aspectRatio = "900 / " + h;
           label.textContent = tab.getAttribute("data-label");
           after.alt = "After: the photo regraded in Aesthiq's " + tab.textContent + " look";
           frame.classList.remove("is-swapping");
