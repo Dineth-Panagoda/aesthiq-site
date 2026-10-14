@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aesthiq — Aesthetic intelligence for every photo you capture</title>
 <meta name="description" content="Aesthiq is an AI photo editor for iOS that regrades your photos like a colorist would. Pick a curated look or match any reference photo, then fine-tune with sliders, frames, and film effects.">
+<meta name="theme-color" content="#0E0D0B">
 <link rel="canonical" href="https://aesthiq.app/">
 <link rel="icon" href="img/icon-180.png">
 <link rel="apple-touch-icon" href="img/icon-180.png">
@@ -20,7 +21,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -44,179 +45,233 @@
 }
 </script>
 
+<script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="style.css">
+<script src="analytics.js" defer></script>
+<script src="site.js" defer></script>
 </head>
-<body>
+<body class="landing">
+<a class="skip" href="#main">Skip to content</a>
 
 <header>
   <div class="wrap nav">
     <a class="brand" href="/"><img src="img/wordmark.png" width="560" height="215" alt="Aesthiq"></a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#styles">Styles</a>
       <a href="#features">Features</a>
-      <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
     </nav>
+    <a class="nav-cta" href="https://apps.apple.com/app/id6777310894" data-download="header">Get the app</a>
   </div>
 </header>
 
-<main>
+<main id="main">
 
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
-      <div class="badge"><span class="dot"></span> Now on the App Store</div>
-      <h1>Aesthetic intelligence for every moment you <em>capture</em>.</h1>
-      <p class="lede">
-        Aesthiq is an AI photo editor for iPhone that regrades your photos the way a
-        colorist would. Pick a curated look, or hand it any reference photo and it
-        matches the grade — then fine-tune every detail yourself.
+    <div class="hero-copy">
+      <div class="badge" data-reveal><span class="dot"></span> Now on the App Store</div>
+      <h1 data-reveal>Aesthetic intelligence for every moment you <em>capture</em>.</h1>
+      <p class="lede" data-reveal>
+        An AI photo editor for iPhone that regrades your photos the way a colorist would.
+        Pick a look, or hand it any reference photo — then fine-tune every detail yourself.
       </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://apps.apple.com/app/id6777310894">Download on the App Store</a>
-        <a class="btn btn-ghost" href="#features">See what it does</a>
+      <div class="cta-row" data-reveal>
+        <a class="btn btn-primary" href="https://apps.apple.com/app/id6777310894" data-download="hero">
+          <svg aria-hidden="true" width="16" height="19" viewBox="0 0 16 19"><path fill="currentColor" d="M13.3 10.1c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8C3.8 4.9 2.3 5.8 1.5 7.2c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 2.9 2.4 1.2 0 1.6-.8 3-.8s1.8.8 3 .8 2-1.2 2.8-2.3c.9-1.3 1.2-2.6 1.3-2.7-.1-.1-2.4-1-2.4-3.8v-.3zM11 3.3c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z"/></svg>
+          Download on the App Store
+        </a>
+        <a class="btn btn-ghost" href="#styles">Browse the looks</a>
       </div>
+      <p class="hero-meta" data-reveal>Free to try · 5 edits on us · iPhone, iOS 18+</p>
     </div>
-    <div class="hero-shot">
-      <img src="img/01-find-your-aesthetic.webp" width="640" height="1319"
-           alt="Aesthiq on iPhone showing a curated style applied to a sunset beach portrait, with variation thumbnails below">
-    </div>
+
+    <figure class="compare" data-compare data-reveal>
+      <div class="compare-frame">
+        <img class="compare-after" src="img/compare/disposable-after.webp" width="900" height="1198"
+             alt="After: the photo regraded in Aesthiq's Disposable look">
+        <img class="compare-before" src="img/compare/disposable-before.webp" width="900" height="1198"
+             alt="Before: the original photo straight from the camera roll">
+        <div class="compare-line" aria-hidden="true"></div>
+        <div class="compare-handle" role="slider" tabindex="0" aria-label="Before and after comparison"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+        </div>
+        <span class="compare-tag compare-tag-before">Before</span>
+        <span class="compare-tag compare-tag-after" data-compare-label>Disposable · Classic Flash</span>
+      </div>
+      <figcaption class="compare-tabs" role="group" aria-label="Choose a look">
+        <button type="button" class="is-active" data-pair="disposable" data-label="Disposable · Classic Flash" data-h="1198">Disposable</button>
+        <button type="button" data-pair="film" data-label="Film · Instant" data-h="978">Film</button>
+        <button type="button" data-pair="golden-hour" data-label="Golden Hour · Soft Sun" data-h="1036">Golden Hour</button>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
-<section id="features">
+<section id="styles" class="styles">
   <div class="wrap">
-    <p class="eyebrow">What it does</p>
-    <h2>Built for people whose feed has&nbsp;a look.</h2>
-    <p class="lede">
-      Aesthiq is made for content creators and photographers who want every post to
-      belong to the same visual world — not a folder of one-off filters.
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" data-reveal>The looks</p>
+        <h2 data-reveal>Nine looks. Every one with variations.</h2>
+        <p class="lede" data-reveal>
+          Each look is a full grade, built to hold up across a whole set of photos — not a
+          one-tap filter that falls apart on the next shot.
+        </p>
+      </div>
+      <div class="row-arrows" aria-hidden="true">
+        <button type="button" class="arrow" data-scroll="-1" tabindex="-1">←</button>
+        <button type="button" class="arrow" data-scroll="1" tabindex="-1">→</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="style-row" data-style-row tabindex="0" aria-label="Aesthiq looks">
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/disposable-default.webp" width="640" height="755" alt="Sample photo in Aesthiq's Disposable look">
+      <div class="style-info"><h3>Disposable</h3><p>Classic Flash · Neon Flash · Amber Flash</p></div>
+    </article>
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/film-instant.webp" width="640" height="708" alt="Sample photo in Aesthiq's Film look">
+      <div class="style-info"><h3>Film</h3><p>Instant · Natural · Soft Flash · Expired</p></div>
+    </article>
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/bw-paparazzi.webp" width="640" height="667" alt="Sample photo in Aesthiq's Black &amp; White look">
+      <div class="style-info"><h3>Black &amp; White</h3><p>Paparazzi · Film Noir · Soft Mono</p></div>
+    </article>
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/y2k-digicam-default.webp" width="640" height="797" alt="Sample photo in Aesthiq's Y2K look">
+      <div class="style-info"><h3>Y2K</h3><p>Digicam · Night Out · Indie Sleaze</p></div>
+    </article>
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/dream-bloom-default.webp" width="640" height="690" alt="Sample photo in Aesthiq's Dream Bloom look">
+      <div class="style-info"><h3>Dream Bloom</h3><p>Soft Mist · Angel Glow · Pastel Haze</p></div>
+    </article>
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/cinematic-movie-still.webp" width="640" height="762" alt="Sample photo in Aesthiq's Cinematic look">
+      <div class="style-info"><h3>Cinematic</h3><p>Movie Still · Neon · Cold Steel</p></div>
+    </article>
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/golden-hour-default.webp" width="640" height="555" alt="Sample photo in Aesthiq's Golden Hour look">
+      <div class="style-info"><h3>Golden Hour</h3><p>Soft Sun · Direct Sun · Dusk</p></div>
+    </article>
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/studio-portrait-default.webp" width="640" height="894" alt="Sample photo in Aesthiq's Studio Portrait look">
+      <div class="style-info"><h3>Studio Portrait</h3><p>Bold Backdrop · Color Gels · Soft Editorial</p></div>
+    </article>
+    <article class="style-card" data-reveal>
+      <img loading="lazy" decoding="async" src="img/styles/motion-blur-default.webp" width="640" height="709" alt="Sample photo in Aesthiq's Motion Blur look">
+      <div class="style-info"><h3>Motion Blur</h3><p>Ghost Blur · Vertical Blur · Zoom Blur</p></div>
+    </article>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>What it does</p>
+    <h2 data-reveal>Built for people whose feed has&nbsp;a look.</h2>
+    <p class="lede" data-reveal>
+      For creators and photographers who want every post to belong to the same visual
+      world — not a folder of one-off filters.
     </p>
 
-    <div style="margin-top:60px">
-
-      <div class="feature">
-        <div>
+    <div class="feat-grid">
+      <div class="feat-list">
+        <article class="feat" data-feat="0">
+          <img class="feat-inline" loading="lazy" decoding="async" src="img/01-find-your-aesthetic.webp" width="640" height="1319" alt="Style carousel in Aesthiq with curated looks and three variation thumbnails">
+          <span class="feat-n">01</span>
           <h3>Find your aesthetic</h3>
-          <p>
-            Browse a curated catalog of looks — Y2K digicam flash, disposable camera,
-            warm studio portrait, and more. Each one is a full grade built to hold up
-            across a whole set of photos, not a single-tap filter that falls apart on
-            the next shot. New looks land every week.
-          </p>
-        </div>
-        <div class="feature-shot">
-          <img loading="lazy" decoding="async" src="img/01-find-your-aesthetic.webp" width="640" height="1319"
-               alt="Style carousel in Aesthiq with curated looks and three variation thumbnails">
-        </div>
-      </div>
-
-      <div class="feature">
-        <div>
+          <p>Browse curated looks — Y2K digicam flash, disposable camera, warm studio portrait
+          and more — and see sample photos for every variation before you pick one.</p>
+        </article>
+        <article class="feat" data-feat="1">
+          <img class="feat-inline" loading="lazy" decoding="async" src="img/02-match-any-aesthetic.webp" width="640" height="1319" alt="Custom Aesthetic feature in Aesthiq matching a reference photo's grade">
+          <span class="feat-n">02</span>
           <h3>Match any aesthetic</h3>
-          <p>
-            Got a mood no preset covers? Drop in a reference photo and Aesthiq reads its
-            colour, contrast and light, then applies that same treatment to your own
-            shot. Any image you've saved becomes a look you can reuse.
-          </p>
-        </div>
-        <div class="feature-shot">
-          <img loading="lazy" decoding="async" src="img/02-match-any-aesthetic.webp" width="640" height="1319"
-               alt="Custom Aesthetic feature in Aesthiq matching a reference photo's grade">
-        </div>
-      </div>
-
-      <div class="feature">
-        <div>
+          <p>Got a mood no preset covers? Drop in a reference photo and Aesthiq reads its
+          colour, contrast and light, then applies that treatment to your own shot.</p>
+        </article>
+        <article class="feat" data-feat="2">
+          <img class="feat-inline" loading="lazy" decoding="async" src="img/03-keep-your-feed-consistent.webp" width="640" height="1319" alt="Aesthiq home grid showing recent edits, each tile split before and after">
+          <span class="feat-n">03</span>
           <h3>Keep your feed consistent</h3>
-          <p>
-            Every edit is saved to your library with a before-and-after view, so you can
-            see the through-line across a set at a glance and reapply the same look to
-            the next photo in seconds.
-          </p>
-        </div>
-        <div class="feature-shot">
-          <img loading="lazy" decoding="async" src="img/03-keep-your-feed-consistent.webp" width="640" height="1319"
-               alt="Aesthiq home grid showing recent edits, each tile split before and after">
-        </div>
-      </div>
-
-      <div class="feature">
-        <div>
+          <p>Every edit is saved with a before-and-after view, so you can see the through-line
+          across a set and reapply the same look to the next photo in seconds.</p>
+        </article>
+        <article class="feat" data-feat="3">
+          <img class="feat-inline" loading="lazy" decoding="async" src="img/04-tune-every-detail.webp" width="640" height="1319" alt="Aesthiq adjust panel with the style amount dial and manual sliders">
+          <span class="feat-n">04</span>
           <h3>Tune every detail yourself</h3>
-          <p>
-            The AI grade is a starting point, not a verdict. Dial the style amount up or
-            down, then reach for a full set of manual sliders — exposure, contrast,
-            temperature, grain and more — until it's exactly yours.
-          </p>
-        </div>
-        <div class="feature-shot">
-          <img loading="lazy" decoding="async" src="img/04-tune-every-detail.webp" width="640" height="1319"
-               alt="Aesthiq adjust panel with the style amount dial and manual sliders">
-        </div>
-      </div>
-
-      <div class="feature">
-        <div>
+          <p>The AI grade is a starting point, not a verdict. Dial the style amount, then
+          adjust exposure, contrast, temperature, grain and more until it's exactly yours.</p>
+        </article>
+        <article class="feat" data-feat="4">
+          <img class="feat-inline" loading="lazy" decoding="async" src="img/05-stack-frames-film-effects.webp" width="640" height="1319" alt="Aesthiq overlay carousel with an instant frame and date stamp applied">
+          <span class="feat-n">05</span>
           <h3>Stack frames &amp; film effects</h3>
-          <p>
-            Finish with instant-camera frames, date stamps, film grain and light leaks.
-            Layer them over any grade to land the exact era you're going for.
-          </p>
-        </div>
-        <div class="feature-shot">
-          <img loading="lazy" decoding="async" src="img/05-stack-frames-film-effects.webp" width="640" height="1319"
-               alt="Aesthiq overlay carousel with an instant frame and date stamp applied">
-        </div>
+          <p>Finish with instant-camera frames, date stamps, film grain and light leaks,
+          layered over any grade to land the exact era you're going for.</p>
+        </article>
       </div>
 
+      <div class="feat-stage" aria-hidden="true">
+        <div class="phone">
+          <img class="is-active" src="img/01-find-your-aesthetic.webp" width="640" height="1319" alt="">
+          <img loading="lazy" src="img/02-match-any-aesthetic.webp" width="640" height="1319" alt="">
+          <img loading="lazy" src="img/03-keep-your-feed-consistent.webp" width="640" height="1319" alt="">
+          <img loading="lazy" src="img/04-tune-every-detail.webp" width="640" height="1319" alt="">
+          <img loading="lazy" src="img/05-stack-frames-film-effects.webp" width="640" height="1319" alt="">
+        </div>
+        <ol class="feat-dots"><li class="is-active"></li><li></li><li></li><li></li><li></li></ol>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="how">
+<section id="how" class="how">
   <div class="wrap">
-    <p class="eyebrow">How it works</p>
-    <h2>Three steps. That's the whole app.</h2>
+    <p class="eyebrow" data-reveal>How it works</p>
+    <h2 data-reveal>Three steps. That's the whole app.</h2>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-n">STEP 01</div>
+    <ol class="steps" data-steps>
+      <li class="step" data-reveal>
+        <span class="step-n">1</span>
         <h3>Choose your photo</h3>
-        <p>Select any photo from your camera roll.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">STEP 02</div>
+        <p>Any shot from your camera roll, or share one straight into Aesthiq from Photos.</p>
+      </li>
+      <li class="step" data-reveal>
+        <span class="step-n">2</span>
         <h3>Pick a look</h3>
-        <p>Dozens of curated looks — from Y2K digicam flash to studio portraits.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">STEP 03</div>
-        <h3>Get the look</h3>
-        <p>Aesthiq regrades your photo like a colorist would. Fine-tune with sliders and overlays.</p>
-      </div>
-    </div>
+        <p>Nine curated looks with variations — or your own reference photo.</p>
+      </li>
+      <li class="step" data-reveal>
+        <span class="step-n">3</span>
+        <h3>Make it yours</h3>
+        <p>Aesthiq regrades the photo like a colorist would. Fine-tune with sliders and overlays.</p>
+      </li>
+    </ol>
 
-    <div class="note">
-      <span>✦</span>
+    <p class="note" data-reveal>
+      <span aria-hidden="true">✦</span>
       <span>Under the hood, Aesthiq runs on Google's Gemini models for image understanding
       and grading, with on-device rendering for the manual adjustments so edits stay instant.</span>
-    </div>
+    </p>
   </div>
 </section>
 
-<section id="pricing">
+<section id="pricing" class="pricing">
   <div class="wrap">
-    <p class="eyebrow">Pricing</p>
-    <h2>Free to start. Pro when you're shooting a lot.</h2>
-    <p class="lede">
+    <p class="eyebrow" data-reveal>Pricing</p>
+    <h2 data-reveal>Free to start. Pro when you're shooting a lot.</h2>
+    <p class="lede" data-reveal>
       Aesthiq is free to download. Every account gets starter edits plus a free edit each
       day — Aesthiq Pro removes the limit.
     </p>
 
     <div class="tiers">
-      <div class="tier">
+      <div class="tier" data-reveal>
         <h3>Free</h3>
         <div class="price">$0</div>
         <ul>
@@ -226,7 +281,7 @@
           <li>Manual sliders and overlays</li>
         </ul>
       </div>
-      <div class="tier hi">
+      <div class="tier hi" data-reveal>
         <span class="tier-tag">Best value</span>
         <h3>Aesthiq Pro — Annual</h3>
         <div class="price">$29.99 <span>/ year</span></div>
@@ -237,7 +292,7 @@
           <li>New looks every week</li>
         </ul>
       </div>
-      <div class="tier">
+      <div class="tier" data-reveal>
         <h3>Aesthiq Pro — Weekly</h3>
         <div class="price">$2.99 <span>/ week</span></div>
         <ul>
@@ -256,13 +311,13 @@
   </div>
 </section>
 
-<section id="about">
+<section id="about" class="about">
   <div class="wrap">
-    <p class="eyebrow">About</p>
-    <h2>Who's building this.</h2>
+    <p class="eyebrow" data-reveal>About</p>
+    <h2 data-reveal>Who's building this.</h2>
 
-    <div class="founder">
-      <img class="avatar" src="img/founder.jpg" width="400" height="400" alt="Dineth Panagoda, founder of Aesthiq">
+    <div class="founder" data-reveal>
+      <img class="avatar" loading="lazy" src="img/founder.jpg" width="400" height="400" alt="Dineth Panagoda, founder of Aesthiq">
       <div>
         <p class="name">Dineth Panagoda</p>
         <p class="role">Founder &amp; Engineer</p>
@@ -276,22 +331,23 @@
           they can't hold a consistent look across everything you post. Aesthiq is the
           attempt to fix that.
         </p>
-        <p style="margin:0"><a href="https://www.linkedin.com/in/dineth-panagoda-927667223/">LinkedIn</a> · <a href="mailto:dineth@aesthiq.app">dineth@aesthiq.app</a></p>
+        <p id="contact" class="founder-links">
+          <a href="mailto:dineth@aesthiq.app">dineth@aesthiq.app</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://www.linkedin.com/in/dineth-panagoda-927667223/">LinkedIn</a>
+        </p>
+        <p class="founder-note">Support, press or partnerships — email reaches me directly.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="wrap">
-    <p class="eyebrow">Contact</p>
-    <h2>Get in touch.</h2>
-    <p class="lede">Support, press, or partnership — email reaches me directly.</p>
-
-    <div class="contact-card">
-      <div class="label">Email</div>
-      <div class="val"><a href="mailto:dineth@aesthiq.app">dineth@aesthiq.app</a></div>
-    </div>
+<section class="final-cta">
+  <div class="wrap final-inner" data-reveal>
+    <img class="final-icon" src="img/icon-180.png" width="180" height="180" alt="">
+    <h2>Your photos, <em>regraded</em>.</h2>
+    <p class="lede">Five free edits to start. No account needed.</p>
+    <a class="btn btn-primary" href="https://apps.apple.com/app/id6777310894" data-download="footer_cta">Download on the App Store</a>
   </div>
 </section>
 
