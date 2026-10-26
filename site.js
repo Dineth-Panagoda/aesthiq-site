@@ -179,6 +179,16 @@
   }
 
   // ---------- App Store clicks ----------
+  // Buttons ship tagged ct=web-<location> (App Store Connect campaign). Visitors
+  // arriving from Product Hunt get ct=ph-<location> instead, so launch-day
+  // installs are counted separately.
+  var fromPH = /[?&](ref|utm_source)=producthunt\b/i.test(location.search) ||
+               /producthunt\.com/i.test(document.referrer);
+  if (fromPH) {
+    document.querySelectorAll("[data-download]").forEach(function (link) {
+      link.href = link.href.replace(/([?&]ct=)web-/, "$1ph-");
+    });
+  }
   document.querySelectorAll("[data-download]").forEach(function (link) {
     link.addEventListener("click", function () {
       track("download_clicked", { location: link.getAttribute("data-download") });
