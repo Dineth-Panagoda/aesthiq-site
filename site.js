@@ -30,7 +30,11 @@
     var after = compare.querySelector(".compare-after");
     var label = compare.querySelector("[data-compare-label]");
     var tabs = Array.prototype.slice.call(compare.querySelectorAll("[data-pair]"));
-    var pos = 50;
+    // Resting slider position per pair (data-pos): where the look's tell-tale
+    // detail sits, e.g. the flash shadow just left of the Disposable subject.
+    var restOf = function (tab) { return Number(tab.getAttribute("data-pos")) || 50; };
+    var rest = restOf(tabs.filter(function (t) { return t.classList.contains("is-active"); })[0] || tabs[0]);
+    var pos = rest;
     var userTouched = false;
     var sweepFrame = null;
     var autoplay = null;
@@ -57,12 +61,12 @@
     // Gentle sweep to show the slider is draggable: 50 → 78 → 22 → 50.
     var sweep = function () {
       if (reduceMotion) return;
-      var keys = [50, 78, 22, 50], seg = 700, start = null;
+      var keys = [rest, Math.min(rest + 28, 92), Math.max(rest - 14, 8), rest], seg = 700, start = null;
       var ease = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
       var step = function (now) {
         if (start === null) start = now;
         var t = (now - start) / seg, i = Math.floor(t);
-        if (i >= keys.length - 1) { setPos(50); sweepFrame = null; return; }
+        if (i >= keys.length - 1) { setPos(rest); sweepFrame = null; return; }
         setPos(keys[i] + (keys[i + 1] - keys[i]) * ease(t - i));
         sweepFrame = requestAnimationFrame(step);
       };
@@ -82,7 +86,8 @@
           label.textContent = tab.getAttribute("data-label");
           after.alt = "After: the photo regraded in Aesthiq's " + tab.textContent + " look";
           frame.classList.remove("is-swapping");
-          setPos(50);
+          rest = restOf(tab);
+          setPos(rest);
           if (!fromUser) sweep();
         }, 260);
       };

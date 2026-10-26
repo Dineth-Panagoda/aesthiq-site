@@ -134,7 +134,7 @@ header{
 .compare-frame{
   /* Fixed shape so the look tabs below never move; photos fill it with cover,
      and each before/after pair shares dimensions, so the halves stay aligned. */
-  --pos:50%;position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;
+  --pos:22%;position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;
   background:var(--ink-lift);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize;
   box-shadow:0 40px 80px -30px rgba(0,0,0,.85),0 0 0 1px var(--line);
 }
